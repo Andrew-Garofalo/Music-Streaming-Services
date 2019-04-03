@@ -1,0 +1,72 @@
+<!-- TOP NAVBAR -->
+<nav class="navbar navbar navbar-dark bg-primary fixed-top ">
+  <div class="container-fluid navbar ">
+    <div class="navbar-header ">
+      <a class="navbar-brand" href="#">Music Streaming Services</a>
+    </div>
+    <ul class="navbar-nav" style="color:white;" >
+      <li class="nav-item px-2 mx-2 border border-dark" ><a class="nav-link" href="#">Home</a></li>
+      <li class="active nav-item px-2 mx-2 border border-dark" ><a class="nav-link" href="library">Music Library</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container topsongs h-100">
+  <p>&nbsp;</p>
+  <h4 style="width:100%;" class="mt-var py-3 pl-5">
+    Top Songs
+  </h4>
+<br>
+  <form id="filter">
+    <label class="pr-3" for="filter_box">Search: </label>
+    <input id="filter_box" type="text" [(ngModel)]="term" name="term">
+  </form>
+  <br>
+
+  <div class="row">
+    <ul class="gr col-12" style="list-style: none;" id="listing">
+      <span class="row">
+        <span class="gr libheadings col-4"> NAME </span>
+        <span class="gr libheadings col-4"> ARTIST </span>
+        <span class="gr libheadings col-4"> ALBUM </span>
+      </span>
+      <li *ngFor="let song of songs | filter:term">
+        <a class="row" (click)="playMusic(song)">
+        
+        <span class="gr col-4"><span *ngIf="currSongArray[song.index]"><i class="fa fa-volume-up font-size:48px"></i></span>
+        {{song.name | uppercase}} </span>
+        <span class="gr col-4"> {{song.artist | uppercase}} </span>
+        <span class="gr col-4"> {{song.album | uppercase}}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+
+
+<!-- BOTTOM NAVBAR -->
+<nav class="navbar navbar-light bg-light fixed-bottom">
+  <div class="container-fluid">
+    <!-- left of nav -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Music image</a>
+    </div>
+
+    <!-- center of nav -->
+    <ul class="nav navbar-nav navbar-center">
+      <a (click)="playPrevTrack()"> 
+        <i class="fa fa-step-backward" style="margin-right:15px;margin-top:10px;font-size:24px;"></i>
+      </a>
+      <a class="row; display:inline-block;" (click)="playMusicButton()">
+        <i *ngIf="playButton" class="fa fa-play-circle" style="margin-right:15px;margin-left:15px;font-size:48px;color:red" aria-hidden="true"></i>
+        <i *ngIf="!playButton" class="fa fa-pause-circle" style="margin-right:15px;margin-left:15px;font-size:48px;" aria-hidden="true"></i>
+      </a>
+      <a (click)="playNextTrack()"> 
+        <i class="fa fa-step-forward" style="margin-left:15px;margin-top:10px;font-size:24px;"></i>
+      </a>
+    </ul>
+
+  </div>
+</nav>

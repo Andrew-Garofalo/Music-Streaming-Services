@@ -1,0 +1,83 @@
+.home {
+    background: #60656F;
+    color: #F7F7FF;
+    min-height: 100vh;
+}
+
+.component {
+    height: 100%;
+ }
+ 
+.navbar-nav { 
+    flex-direction: row;
+}
+
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+/* Vary content positioning based off of screen breakpoints */
+
+/* default small device ----------- */
+@media only screen 
+and (max-width : 269px) {
+    /* Styles */
+    .mt-var {
+        margin-top: 60%;
+    }
+}
+
+@media only screen 
+and (min-width : 320px) 
+and (max-width : 480px) {
+    /* Styles */
+    .mt-var {
+        margin-top: 30%;
+    }
+}
+
+@media only screen 
+and (min-width : 270px)
+and (max-width : 320px) {
+    /* Styles */
+    .mt-var {
+        margin-top: 45%;
+    }
+}
+
+@media only screen 
+and (min-width : 321px)
+and (max-width : 515px) {
+    /* Styles */
+    .mt-var {
+        margin-top: 30%;
+    }
+}
+
+@media only screen 
+and (min-width : 516px) 
+and (max-width : 767px){
+    /* Styles */
+    .mt-var {
+        margin-top: 15%;
+    }
+}
+
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 989px){
+    /* Styles */
+    .mt-var {
+        margin-top: 10%;
+    }
+}
+
+@media only screen 
+and (min-width : 989px) {
+    /* Styles */
+    .mt-var {
+        margin-top: 5%;
+    }
+}
